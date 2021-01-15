@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Votaci贸n Secreta Online</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="votaci贸n, vote, Votaci贸n Online, Elecciones, Autoridades, Eventos, Evento" name="keywords">
   <meta content="Sistema de Votaci贸n Online Privado" name="description">
+  <meta name="author" content="maurotello">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img/favicon.ico" rel="icon">
+  <link href="img/favicon.ico" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
@@ -30,15 +32,16 @@
         <div class="social-links">
           <a target="_blank" href="https://twitter.com/OnlineVotar" class="twitter"><i class="fa fa-twitter"></i></a>
           <a target="_blank" href="https://www.facebook.com/VotarOnline-100117498705631" class="facebook"><i class="fa fa-facebook"></i></a>
-          <a target="_blank" href="https://www.instagram.com/votaronline2021/" class="instagram"><i class="fa fa-instagram"></i></a>
+          <a target="_blank" href="https://www.instagram.com/votaronline.ar/" class="instagram"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="#" class="scrollto"><span>Votar ONLINE</span></a></h1>
+      <div class="logo">
+         <!-- Uncomment below if you prefer to use an image logo -->
+            <img class="img-fluid" src="img/logoltd.png" />
+            <h1 class="text-light"><a href="#" class="scrollto"><span>Votar ONLINE</span></a></h1>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
@@ -59,7 +62,7 @@
         <div class="col-md-6 intro-info order-md-first order-last">
           <h2>Sistema de Votaci贸n <br>Online para su <span>Instituci贸n!</span></h2>
           <div>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#footer" class="btn-get-started scrollto">Contacto</a>
           </div>
         </div>
   
@@ -86,6 +89,11 @@
             <div class="about-content">
               <h2>Qu茅 ofrecemos</h2>
               <h3>Plataforma online de Votaci贸n Privada, Segura, Vers谩til y Simple.</h3>
+              <p>
+                  <ul>
+                     <li><i class="ion-android-checkmark-circle"></i> Aplicaci贸n <b>testeada</b> por el <a target="_blank" href="https://www.argentina.gob.ar/inaes">INAES</a></li>
+                  </ul>
+              </p>
               <p>A trav茅s de la misma los integrantes aprobados para poder votar, podr谩n ingresar desde su Tel茅fono, tablet o PC y realizar el voto.</p>
               <p>El sistema est谩 organizado por "Eventos", cada evento es una votaci贸n y tiene a 茅l asociado "Puestos" y "Candidatos", como as铆 tambi茅n a los usuarios que podr谩n votar en dicho evento.</p>
               <ul>
@@ -243,7 +251,7 @@
                   <div class="social-links">
                     <a target="_blank" href="https://twitter.com/OnlineVotar" class="twitter"><i class="fa fa-twitter"></i></a>
                     <a target="_blank" href="https://www.facebook.com/VotarOnline-100117498705631" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a target="_blank" href="https://www.instagram.com/votaronline2021/" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/votaronline.ar/" class="instagram"><i class="fa fa-instagram"></i></a>
                   </div>
                 </div>
             </div>
@@ -252,26 +260,31 @@
             <div class="form">
               <h4>Env铆enos un mensaje</h4>
               <p>A trav茅s de este formulario podr谩 realizarnos las consultas que considere.</p>
-              <form action="" method="post" role="form" class="contactForm">
+              
+              <form  onsubmit="enviarMail(); return false" class="contactForm" id="Formulario" name="enviar_email">
+                <input type="hidden" value="true" name="emailSent" id="emailSent">
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Su nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Su nombre" data-rule="minlen:4" data-msg="Por favor, ingrese 4 caracteres o m醩" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Su Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Su Email" data-rule="email" data-msg="Por favor, ingrese un e-mail v醠ido" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto" data-rule="minlen:4" data-msg="Por favor, ingrese 4 caracteres o m醩" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Message" placeholder="Mensaje"></textarea>
+                  <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Message" placeholder="Mensaje"></textarea>
                   <div class="validation"></div>
                 </div>
-                <div id="sendmessage">Su mensaje fue enviado correctamente. Muchas gracias!</div>
-                <div id="errormessage"></div>
-                <div class="text-center"><button type="submit" title="Send Message">Enviar mensaje</button></div>
+                <div class="text-center">
+                        <!--<button type="submit" title="Send Message">Enviar mensaje</button>-->
+                        <input type="submit" id="contactFormSubmit" value="Enviar Mensaje" class="btn btn-primary btn-modern pull-right text-center" style="font-size: 1.2em;padding-left: 5%; padding-right: 5%" data-loading-text="Loading...">
+                  </div>
+                <div id="respuesta" style="display: none;"></div>
+                <div id="resultado_mensaje" style="width:100%; height:auto;"></div>
               </form>
             </div>
           </div>
@@ -283,12 +296,14 @@
         &copy; Copyright <strong>Mauro Tello</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Dise帽ada por <a target="_blank" href="https://www.maurotello.com.ar/">Mauro Tello</a>
+        Dise帽o y Programaci贸n <a target="_blank" href="https://www.maurotello.com.ar/">Mauro Tello</a>
       </div>
     </div>
   </footer><!-- #footer -->
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+
+  <script src="js/ajax1.js"></script>
   <script src="libs/jquery/jquery.min.js"></script>
   <script src="libs/jquery/jquery-migrate.min.js"></script>
   <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -296,7 +311,5 @@
   <script src="libs/mobile-nav/mobile-nav.js"></script>
   <script src="libs/owlcarousel/owl.carousel.min.js"></script>
   <script src="libs/isotope/isotope.pkgd.min.js"></script>
-  <script src="contactform/contactform.js"></script>
-  <script src="js/scripts.js"></script>
 </body>
 </html>
